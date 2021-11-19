@@ -1,0 +1,63 @@
+<br>
+<br>
+<br>
+
+<div class="col-md-10 container">
+    <form [formGroup]="form" (ngSubmit)="Salvar()" ngNativeValidate>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Nome</label>
+                <input [(ngModel)]="usuario.nome" formControlName="nome" type="text" id="nome" name="nome" class="form-control" placeholder="Nome do Usuário"
+                    maxlength="200" minlength="3" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Data de Nascimento</label>
+                <input [(ngModel)]="usuario.dataNascimento" formControlName="dataNascimento" type="date" id="dataNascimento" name="dataNascimento" class="form-control"
+                    placeholder="Data de Nascimento" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">E-mail</label>
+                <input [(ngModel)]="usuario.email" formControlName="email" type="email" id="email" name="email" class="form-control" placeholder="E-mail do Usuário"
+                    maxlength="100" required />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Sexo</label>
+                <select class="form-control" [(ngModel)]="usuario.sexoId" formControlName="sexoId" id="sexoId" name="sexoId" required>
+                    <option *ngFor="let sexo of sexos" value= {{sexo.sexoId}}>
+                      {{sexo.descricao}}
+                    </option>
+                 </select>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Senha</label>
+                <input formControlName="senha" [(ngModel)]="usuario.senha" type="password" id="senha" name="senha" class="form-control" placeholder="Senha do Usuário"
+                    maxlength="30" required />
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <div class="float-start">
+                <button type="submit" value="Cadastrar" class="btn btn-primary">
+                    <i class="fa fa-save"></i> Salvar
+                </button>
+            </div>
+            <div class="float-end">
+                <button class="btn btn-info" [routerLink]="['/usuario-index']">
+                    <i class="fa fa-mail-reply"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
